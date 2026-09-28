@@ -461,3 +461,6 @@ ul { list-style: none; }
   .grid--2 .card:first-child .card__img img { object-position: 50% 45%; }
 }
 .shot--factory img { object-position: 50% 30%; }
+/* le grand "Portfolio" ne doit jamais bloquer les clics du sommaire */
+.poster .script { pointer-events: none; }
+.poster__info { position: relative; z-index: 1; }
