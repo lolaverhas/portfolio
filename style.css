@@ -464,3 +464,11 @@ ul { list-style: none; }
 /* le grand "Portfolio" ne doit jamais bloquer les clics du sommaire */
 .poster .script { pointer-events: none; }
 .poster__info { position: relative; z-index: 1; }
+/* Présentation : colonnes profil */
+.profile { margin-top: clamp(48px, 6vw, 80px); padding-top: 20px; border-top: 1px solid var(--line); }
+.profile dd { line-height: 1.45; }
+@media (min-width: 1000px) {
+  .profile { grid-template-columns: 1.3fr 2.2fr 1fr 1fr 1.3fr; }
+}
+.profile dd span { display: block; font-weight: 500; color: var(--muted); margin-bottom: 10px; }
+#presentation .intro__side { color: var(--ink); }
