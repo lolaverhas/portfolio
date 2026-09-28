@@ -415,6 +415,7 @@ ul { list-style: none; }
   padding: clamp(64px, 9vw, 120px) var(--gutter) 0;
   align-items: start;
 }
+.shot--top img { object-position: 50% 32%; }
 .shot--offset { margin-top: clamp(40px, 10vw, 160px); }
 
 .prose p + p { margin-top: 1em; }
