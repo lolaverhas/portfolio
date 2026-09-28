@@ -1,0 +1,348 @@
+/* =========================================================
+   Lola Verhas — Portfolio
+   Direction : affiche "Sundays Finest" — fond blanc pur,
+   lettres nettes remplies d'une matière colorée + grain,
+   petits textes condensés en capitales.
+   ========================================================= */
+
+@font-face { font-family: "Anton"; src: url(fonts/anton.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Archivo Narrow"; src: url(fonts/archivo-narrow-500.woff) format("woff"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Archivo Narrow"; src: url(fonts/archivo-narrow-700.woff) format("woff"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Great Vibes"; src: url(fonts/great-vibes.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+
+:root {
+  --white: #ffffff;
+  --ink: #111111;
+  --muted: #6b6b6b;
+  --line: #e6e6e6;
+  --gutter: clamp(16px, 3vw, 40px);
+
+  --f-display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --f-script: "Great Vibes", "Snell Roundhand", cursive;
+  --f-small: "Archivo Narrow", "Arial Narrow", sans-serif;
+
+  /* Grain coloré (bruit SVG) — reste net quelle que soit la taille du texte */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='3.2 0 0 0 -1.1  0 3.2 0 0 -1.1  0 0 3.2 0 -1.1  0 0 0 0 0.38'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--f-small);
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ---------------------------------------------------------
+   Texture : dégradés flous + grain, découpés par la lettre.
+   Les bords des lettres restent 100 % nets.
+   --------------------------------------------------------- */
+.tex {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-color: #f3f1ed;
+  background-repeat: repeat, no-repeat;
+  background-size: 240px 240px, 100% 100%;
+}
+
+/* A — sombre / rouille / bleu ardoise (comme SUNDAYS) */
+.tex--a {
+  background-image:
+    var(--grain),
+    radial-gradient(ellipse 10% 51% at 3% 22%, #26262b 0%, #26262b 12%, #26262b00 100%),
+    radial-gradient(ellipse 8% 40% at 5% 80%, #3c4a66 0%, #3c4a66 12%, #3c4a6600 100%),
+    radial-gradient(ellipse 11% 35% at 14% 55%, #8f3a2c 0%, #8f3a2c 12%, #8f3a2c00 100%),
+    radial-gradient(ellipse 6% 61% at 22% 20%, #c9c6c0 0%, #c9c6c0 12%, #c9c6c000 100%),
+    radial-gradient(ellipse 10% 54% at 26% 78%, #1f2024 0%, #1f2024 12%, #1f202400 100%),
+    radial-gradient(ellipse 8% 38% at 34% 35%, #b8433a 0%, #b8433a 12%, #b8433a00 100%),
+    radial-gradient(ellipse 11% 46% at 41% 70%, #5f6f7c 0%, #5f6f7c 12%, #5f6f7c00 100%),
+    radial-gradient(ellipse 6% 40% at 47% 18%, #a58a3c 0%, #a58a3c 12%, #a58a3c00 100%),
+    radial-gradient(ellipse 10% 57% at 55% 60%, #2b2a2e 0%, #2b2a2e 12%, #2b2a2e00 100%),
+    radial-gradient(ellipse 8% 35% at 61% 25%, #6e8f86 0%, #6e8f86 12%, #6e8f8600 100%),
+    radial-gradient(ellipse 8% 49% at 68% 82%, #9c4a3a 0%, #9c4a3a 12%, #9c4a3a00 100%),
+    radial-gradient(ellipse 10% 40% at 74% 30%, #34363d 0%, #34363d 12%, #34363d00 100%),
+    radial-gradient(ellipse 6% 54% at 82% 66%, #7a6a9a 0%, #7a6a9a 12%, #7a6a9a00 100%),
+    radial-gradient(ellipse 10% 40% at 88% 22%, #c2553f 0%, #c2553f 12%, #c2553f00 100%),
+    radial-gradient(ellipse 8% 59% at 95% 62%, #23252a 0%, #23252a 12%, #23252a00 100%);
+}
+
+/* B — plus lumineux : beaucoup de blanc, touches de couleur */
+.tex--b {
+  background-image:
+    var(--grain),
+    radial-gradient(ellipse 11% 54% at 6% 40%, #2c2d33 0%, #2c2d33 12%, #2c2d3300 100%),
+    radial-gradient(ellipse 10% 40% at 15% 75%, #b24a3c 0%, #b24a3c 12%, #b24a3c00 100%),
+    radial-gradient(ellipse 12% 49% at 27% 30%, #5b7690 0%, #5b7690 12%, #5b769000 100%),
+    radial-gradient(ellipse 8% 38% at 38% 80%, #c9a44a 0%, #c9a44a 12%, #c9a44a00 100%),
+    radial-gradient(ellipse 11% 54% at 50% 45%, #2a2b30 0%, #2a2b30 12%, #2a2b3000 100%),
+    radial-gradient(ellipse 10% 40% at 62% 25%, #7e9a8c 0%, #7e9a8c 12%, #7e9a8c00 100%),
+    radial-gradient(ellipse 8% 46% at 71% 70%, #8b3b33 0%, #8b3b33 12%, #8b3b3300 100%),
+    radial-gradient(ellipse 11% 49% at 83% 35%, #3e4f6a 0%, #3e4f6a 12%, #3e4f6a00 100%),
+    radial-gradient(ellipse 10% 54% at 94% 70%, #1f2023 0%, #1f2023 12%, #1f202300 100%);
+}
+
+/* C — variante pastel (clin d'œil aux affiches floues) */
+.tex--c {
+  background-image:
+    var(--grain),
+    radial-gradient(ellipse 12% 57% at 5% 45%, #2b2c31 0%, #2b2c31 12%, #2b2c3100 100%),
+    radial-gradient(ellipse 12% 49% at 18% 30%, #3b5bdb 0%, #3b5bdb 12%, #3b5bdb00 100%),
+    radial-gradient(ellipse 11% 46% at 31% 75%, #e0607e 0%, #e0607e 12%, #e0607e00 100%),
+    radial-gradient(ellipse 12% 54% at 45% 35%, #2a2b2f 0%, #2a2b2f 12%, #2a2b2f00 100%),
+    radial-gradient(ellipse 11% 40% at 57% 70%, #d9a441 0%, #d9a441 12%, #d9a44100 100%),
+    radial-gradient(ellipse 12% 49% at 70% 30%, #6f9b7d 0%, #6f9b7d 12%, #6f9b7d00 100%),
+    radial-gradient(ellipse 11% 54% at 83% 68%, #b8433a 0%, #b8433a 12%, #b8433a00 100%),
+    radial-gradient(ellipse 11% 49% at 95% 35%, #26272c 0%, #26272c 12%, #26272c00 100%);
+}
+
+/* ---------------------------------------------------------
+   Typo
+   --------------------------------------------------------- */
+.big {
+  font-family: var(--f-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: .86;
+  letter-spacing: -.005em;
+  white-space: nowrap;
+  font-size: 21vw;           /* ajusté en JS pour remplir la largeur */
+}
+
+.mid {
+  font-family: var(--f-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: .9;
+  font-size: clamp(48px, 9.5vw, 150px);
+}
+
+.script {
+  font-family: var(--f-script);
+  font-weight: 400;
+  line-height: 1.1;
+  white-space: nowrap;
+  font-size: 21vw;
+  -webkit-text-stroke: .012em transparent;   /* épaissit le trait pour que la matière se voie */
+}
+
+/* petits textes "affiche" */
+.label,
+.poster__info,
+.cat__meta,
+.card__cap,
+.contact__info,
+.foot {
+  font-family: var(--f-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: .01em;
+}
+
+/* ---------------------------------------------------------
+   HERO / affiche
+   --------------------------------------------------------- */
+.poster {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--gutter) 0 0;
+  overflow: hidden;
+}
+
+.poster .big {
+  padding: 0 var(--gutter);
+}
+
+.poster__info {
+  display: flex;
+  gap: clamp(24px, 3vw, 40px);
+  margin: clamp(48px, 12vh, 140px) 0 0 38%;
+}
+.poster__info .col { display: flex; flex-direction: column; gap: 14px; }
+.poster__info li.sub { padding-left: 0; }
+.poster__info a { transition: opacity .2s; }
+.poster__info a:hover { opacity: .45; }
+
+.poster .script {
+  margin: -2vw 0 0 -3vw;
+  line-height: 1.25;
+  padding-bottom: 2vw;
+}
+
+/* ---------------------------------------------------------
+   Sections
+   --------------------------------------------------------- */
+.block {
+  padding: clamp(80px, 12vw, 160px) var(--gutter) 0;
+}
+
+.label {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: clamp(32px, 5vw, 64px);
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+.intro__lead {
+  font-family: var(--f-display);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: clamp(28px, 4.2vw, 64px);
+  line-height: 1.02;
+  max-width: 18ch;
+}
+.intro__side {
+  font-size: 15px;
+  line-height: 1.5;
+  max-width: 42ch;
+  color: var(--muted);
+}
+@media (min-width: 900px) {
+  .intro { grid-template-columns: 1.6fr 1fr; align-items: end; }
+}
+
+/* catégories */
+.cat + .cat { margin-top: clamp(80px, 10vw, 140px); }
+
+.cat__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.cat__meta { text-align: right; flex-shrink: 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 16px;
+}
+@media (min-width: 1000px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* cartes projet — visuels provisoires pastel flous + grain */
+.card { display: block; }
+.card__img {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: #f1f0ee;
+  overflow: hidden;
+}
+.card__img::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  filter: blur(22px);
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.card__img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--grain);
+  background-size: 240px 240px;
+  opacity: .35;
+  mix-blend-mode: multiply;
+}
+.card:hover .card__img::before { transform: scale(1.08) rotate(2deg); }
+
+.card__cap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.card__title {
+  font-size: 15px;
+  margin-top: 4px;
+}
+
+.v1::before { background:
+  radial-gradient(circle at 50% 45%, #0000 22%, #3553d6 30%, #0000 42%),
+  radial-gradient(circle at 50% 62%, #0000 20%, #6f86ee 28%, #0000 40%); }
+.v2::before { background:
+  radial-gradient(ellipse 32% 30% at 30% 35%, #f07aa0, #0000),
+  radial-gradient(ellipse 36% 35% at 70% 60%, #f4b36a, #0000),
+  radial-gradient(ellipse 28% 30% at 45% 80%, #9ad0b0, #0000); }
+.v3::before { background:
+  radial-gradient(ellipse 24% 45% at 45% 45%, #8f93c9, #0000),
+  radial-gradient(ellipse 20% 35% at 62% 30%, #c6c9ee, #0000),
+  radial-gradient(ellipse 24% 25% at 40% 75%, #d97a9b, #0000); }
+.v4::before { background:
+  radial-gradient(ellipse 40% 40% at 50% 30%, #f28a4b, #0000),
+  radial-gradient(ellipse 40% 40% at 40% 70%, #8ec9df, #0000),
+  radial-gradient(ellipse 24% 30% at 75% 55%, #f6d36b, #0000); }
+.v5::before { background:
+  radial-gradient(ellipse 14% 45% at 20% 50%, #d9544f, #0000),
+  radial-gradient(ellipse 14% 45% at 40% 50%, #6c7fd8, #0000),
+  radial-gradient(ellipse 14% 45% at 60% 50%, #2b2b2f, #0000),
+  radial-gradient(ellipse 14% 45% at 80% 50%, #7fb0e0, #0000); }
+.v6::before { background:
+  radial-gradient(ellipse 36% 35% at 50% 55%, #b2d38c, #0000),
+  radial-gradient(ellipse 24% 30% at 35% 35%, #e04e5a, #0000),
+  radial-gradient(ellipse 24% 30% at 68% 35%, #e04e5a, #0000); }
+.v7::before { background:
+  radial-gradient(ellipse 32% 50% at 45% 50%, #1e7f5c, #0000),
+  radial-gradient(ellipse 24% 30% at 60% 35%, #f06c8a, #0000),
+  radial-gradient(ellipse 20% 25% at 35% 70%, #f2d15c, #0000); }
+.v8::before { background:
+  radial-gradient(ellipse 40% 45% at 50% 50%, #cfe6f5, #0000),
+  radial-gradient(ellipse 28% 30% at 40% 40%, #7a9bd6, #0000),
+  radial-gradient(ellipse 20% 25% at 62% 65%, #e8a4c4, #0000); }
+.v9::before { background:
+  radial-gradient(ellipse 36% 40% at 40% 40%, #e9965b, #0000),
+  radial-gradient(ellipse 32% 45% at 62% 62%, #a74b77, #0000),
+  radial-gradient(ellipse 20% 25% at 30% 75%, #3d4fb8, #0000); }
+
+/* contact */
+.contact .big { margin-left: -.02em; }
+.contact__info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 56px;
+  margin: 40px 0 0 38%;
+}
+.contact__info a { font-size: 15px; transition: opacity .2s; }
+.contact__info a:hover { opacity: .45; }
+
+/* footer */
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(80px, 12vw, 160px) var(--gutter) var(--gutter);
+}
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+@media (max-width: 700px) {
+  .poster { min-height: 0; padding-top: 20px; }
+  .poster__info,
+  .contact__info { margin-left: 0; }
+  .poster__info { padding: 0 var(--gutter); margin-top: 40px; margin-bottom: 24px; }
+  .contact__info { flex-direction: column; }
+  .cat__head { flex-direction: column; align-items: flex-start; }
+  .cat__meta { text-align: left; }
+  .poster .script { font-size: 30vw; margin-left: -4vw; }
+}
