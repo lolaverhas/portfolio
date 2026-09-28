@@ -440,3 +440,10 @@ ul { list-style: none; }
   .shot--wide img { aspect-ratio: 4 / 5; }
   .gallery { gap: 10px; }
 }
+.shot--mid img { object-position: 50% 58%; }
+.credits mark,
+.credits .me dd {
+  background: var(--ink);
+  color: var(--white);
+  padding: 0 4px;
+}
