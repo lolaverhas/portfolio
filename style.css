@@ -454,3 +454,10 @@ ul { list-style: none; }
   padding: 0 var(--gutter);
 }
 .shot--run img { object-position: 50% 48%; }
+/* Direction artistique : premier projet mis en avant sur toute la largeur */
+@media (min-width: 1000px) {
+  .grid--2 .card:first-child { grid-column: 1 / -1; }
+  .grid--2 .card:first-child .card__img { aspect-ratio: 16 / 8; }
+  .grid--2 .card:first-child .card__img img { object-position: 50% 45%; }
+}
+.shot--factory img { object-position: 50% 30%; }
