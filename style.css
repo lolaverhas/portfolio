@@ -472,3 +472,8 @@ ul { list-style: none; }
 }
 .profile dd span { display: block; font-weight: 500; color: var(--muted); margin-bottom: 10px; }
 #presentation .intro__side { color: var(--ink); }
+.contact__info a.link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
