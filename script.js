@@ -14,8 +14,18 @@
     });
   }
 
+  // Une page s'ouvre toujours en haut, ou exactement sur la section visée (#da, #contact…).
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  function placeScroll() {
+    var target = location.hash && document.getElementById(location.hash.slice(1));
+    if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+    else window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
   var t;
   window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 80); });
-  (document.fonts ? document.fonts.ready : Promise.resolve()).then(fit);
   fit();
+  placeScroll();
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { fit(); placeScroll(); });
+  window.addEventListener('load', placeScroll);
 })();
