@@ -447,3 +447,10 @@ ul { list-style: none; }
   color: var(--white);
   padding: 0 4px;
 }
+@media (min-width: 1000px) { .grid--2 { grid-template-columns: repeat(2, 1fr); } }
+.shot--solo {
+  max-width: 760px;
+  margin: clamp(64px, 9vw, 120px) auto 0;
+  padding: 0 var(--gutter);
+}
+.shot--run img { object-position: 50% 48%; }
