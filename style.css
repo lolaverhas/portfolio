@@ -239,7 +239,7 @@ ul { list-style: none; }
   grid-template-columns: repeat(2, 1fr);
   gap: 28px 16px;
 }
-@media (min-width: 1000px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 32px 20px; } }
 
 /* cartes projet — visuels provisoires pastel flous + grain */
 .card { display: block; }
@@ -447,19 +447,12 @@ ul { list-style: none; }
   color: var(--white);
   padding: 0 4px;
 }
-@media (min-width: 1000px) { .grid--2 { grid-template-columns: repeat(2, 1fr); } }
 .shot--solo {
   max-width: 760px;
   margin: clamp(64px, 9vw, 120px) auto 0;
   padding: 0 var(--gutter);
 }
 .shot--run img { object-position: 50% 48%; }
-/* Direction artistique : premier projet mis en avant sur toute la largeur */
-@media (min-width: 1000px) {
-  .grid--2 .card:first-child { grid-column: 1 / -1; }
-  .grid--2 .card:first-child .card__img { aspect-ratio: 16 / 8; }
-  .grid--2 .card:first-child .card__img img { object-position: 50% 45%; }
-}
 .shot--factory img { object-position: 50% 30%; }
 /* le grand "Portfolio" ne doit jamais bloquer les clics du sommaire */
 .poster .script { pointer-events: none; }
@@ -477,3 +470,8 @@ ul { list-style: none; }
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }
+
+/* Cartes projet : survol et focus clavier */
+.card__title { transition: opacity .2s; }
+.card:hover .card__title { text-decoration: underline; text-underline-offset: 3px; }
+.card:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
