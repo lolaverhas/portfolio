@@ -523,3 +523,16 @@ ul { list-style: none; }
   font-family: var(--f-small); font-weight: 700; text-transform: uppercase; font-size: 12px;
 }
 .video__cap a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Création de contenu : reels au format vertical 9:16 */
+.grid--reels .card__img { aspect-ratio: 9 / 16; }
+@media (min-width: 700px) { .grid--reels { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); } }
+.card__img--reel .play,
+.card__img--video .play {
+  position: absolute; z-index: 2; left: 50%; top: 50%;
+  width: 52px; height: 52px; margin: -26px 0 0 -26px;
+  display: grid; place-items: center; border-radius: 50%;
+  background: rgba(255,255,255,.88); color: var(--ink);
+  font-size: 17px; padding-left: 3px; transition: transform .3s;
+}
+.card:hover .card__img--reel .play { transform: scale(1.1); }
