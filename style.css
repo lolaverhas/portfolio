@@ -475,3 +475,20 @@ ul { list-style: none; }
 .card__title { transition: opacity .2s; }
 .card:hover .card__title { text-decoration: underline; text-underline-offset: 3px; }
 .card:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+/* carte vidéo : vignette YouTube + bouton lecture */
+.card__img--video img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 1;
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.card:hover .card__img--video img { transform: scale(1.04); }
+.card__img--video .play {
+  position: absolute; z-index: 2; left: 50%; top: 50%;
+  width: 56px; height: 56px; margin: -28px 0 0 -28px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.88); color: var(--ink);
+  font-size: 18px; padding-left: 3px;
+  transition: transform .3s;
+}
+.card:hover .card__img--video .play { transform: scale(1.1); }
