@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Penalty VS Michaël Cuisance — Lola Verhas</title>
+<meta name="description" content="Le Penalty, format YouTube de Point de Penalty en partenariat avec Red Bull (Wings Cup EA FC 27) : Michaël Cuisance et Jordy face aux hôtes.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="index.html#audiovisuel">← Retour</a>
+  <a href="index.html">Lola Verhas</a>
+  <span>02.2 Projets audiovisuels</span>
+</nav>
+
+<header class="project-hero">
+  <h1 class="big tex tex--a">Le Penalty</h1>
+  <div class="project-hero__row">
+    <p class="script script--sm script--long tex tex--c" aria-hidden="true">ft. Cuisance</p>
+    <dl class="facts">
+      <div><dt>Production</dt><dd>Point de Penalty</dd></div>
+      <div><dt>Partenaire</dt><dd>Red Bull</dd></div>
+      <div><dt>Mon rôle</dt><dd>Assistante de production</dd></div>
+      <div><dt>Format</dt><dd>YouTube</dd></div>
+    </dl>
+  </div>
+</header>
+
+<main>
+
+<figure class="shot shot--wide video">
+  <button class="video__poster" type="button" data-id="DmUdZEsB6_Q" data-start="1920" aria-label="Lire la vidéo Le Penalty VS Michaël Cuisance">
+    <img src="img/penalty/miniature.jpg" alt="Miniature : Michaël Cuisance et Jordy face aux deux hôtes de Point de Penalty, ardoises Ronaldo et Messi en main">
+    <span class="play" aria-hidden="true">▶</span>
+  </button>
+  <figcaption class="video__cap"><a href="https://www.youtube.com/watch?v=DmUdZEsB6_Q&amp;t=1920s" target="_blank" rel="noopener">Voir sur YouTube ↗</a></figcaption>
+</figure>
+
+<section class="block project-text">
+  <p class="label">Le projet</p>
+  <div class="intro">
+    <p class="intro__lead">Le Penalty VS Michaël Cuisance &amp; La 3ème Mi Temps.</p>
+    <div class="intro__side prose">
+      <p>Michaël Cuisance et Jordy (La 3ème Mi Temps) contre Point de Penalty : deux duos, des jeux maison et un seul trophée. Au programme : quiz de culture foot, enchères, buzzer et EA FC 27.</p>
+      <p>Une vidéo en partenariat avec Red Bull, dans le cadre de la Wings Cup EA FC 27.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block project-text">
+  <p class="label">Mon rôle</p>
+  <div class="intro">
+    <p class="intro__lead">Assistante de production sur un tournage multicaméra.</p>
+    <div class="intro__side prose">
+      <p>Aux côtés des chargés de production, j'ai accompagné la préparation et le bon déroulement du tournage : organisation de la journée, accueil des invités, mise en place des épreuves et suivi du plateau.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <p class="label">Crédits</p>
+  <dl class="credits">
+    <div><dt>Production</dt><dd>Point de Penalty</dd></div>
+    <div><dt>Partenaire</dt><dd>Red Bull</dd></div>
+    <div><dt>Avec</dt><dd>Michaël Cuisance<br>Jordy (La 3ème Mi Temps)<br>PL<br>Nabs<br>Thomas</dd></div>
+    <div><dt>Présentation &amp; auteur</dt><dd>Paul-Loup Grain</dd></div>
+    <div><dt>Réalisation</dt><dd>Point de Penalty<br>Baptiste Pala<br>Samir Rouan</dd></div>
+    <div><dt>Cadreurs</dt><dd>Baptiste Pala<br>Samir Rouan<br>Sacha Temperton</dd></div>
+    <div><dt>Montage</dt><dd>Baptiste Pala<br>Nathan Landeau</dd></div>
+    <div><dt>Chargés de production</dt><dd>Paul-Loup Grain<br>Baptiste Pala</dd></div>
+    <div class="me"><dt>Assistante de production</dt><dd>Lola Verhas</dd></div>
+  </dl>
+</section>
+
+</main>
+
+<footer class="foot">
+  <a href="index.html#audiovisuel">← Tous les projets</a>
+  <a href="#">Retour en haut ↑</a>
+  <span>© 2026</span>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Clic sur la miniature : lance la vidéo à la place (à 32:00)
+document.querySelectorAll('.video__poster').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + btn.dataset.id + '?start=' + btn.dataset.start + '&autoplay=1';
+    f.title = btn.getAttribute('aria-label');
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    btn.replaceWith(f);
+  });
+});
+</script>
+</body>
+</html>
