@@ -239,7 +239,7 @@ ul { list-style: none; }
   grid-template-columns: repeat(2, 1fr);
   gap: 28px 16px;
 }
-@media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 32px 20px; } }
+@media (min-width: 700px) { .grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 32px 20px; } }
 
 /* cartes projet — visuels provisoires pastel flous + grain */
 .card { display: block; }
@@ -492,3 +492,6 @@ ul { list-style: none; }
   transition: transform .3s;
 }
 .card:hover .card__img--video .play { transform: scale(1.1); }
+.shot--estac img { object-position: 50% 30%; }
+.script--long { font-size: clamp(56px, 8.5vw, 150px); }
+.project-hero__row .script { min-width: 0; }
