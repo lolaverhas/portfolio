@@ -547,3 +547,18 @@ ul { list-style: none; }
 }
 .links a:hover { opacity: .5; }
 .links a span:first-child { color: var(--muted); font-weight: 500; }
+
+/* Logos clients (création de contenu) */
+.card__img--logo { display: grid; place-items: center; }
+.card__img--logo img { width: 46%; height: auto; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.card:hover .card__img--logo img { transform: scale(1.05); }
+.logo--fc  { background: #161615; }
+.logo--pdp { background: #4a2bb0; }
+.logo--pdp img { width: 52%; }
+.logo-panel { display: grid; place-items: center; aspect-ratio: 16 / 9; }
+.logo-panel img { width: min(40%, 420px); height: auto; }
+@media (max-width: 700px) { .logo-panel { aspect-ratio: 4 / 3; } }
+.card__img--logo::before, .card__img--logo::after { display: none; }
+.card__img--logo img { position: static; inset: auto; width: 42%; height: auto; object-fit: contain; }
+.card__img--logo.logo--pdp img, .logo-panel.logo--pdp img { width: 70%; }
+.logo-panel.logo--pdp img { width: min(60%, 640px); }
