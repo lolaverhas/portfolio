@@ -562,3 +562,16 @@ ul { list-style: none; }
 .card__img--logo img { position: static; inset: auto; width: 42%; height: auto; object-fit: contain; }
 .card__img--logo.logo--pdp img, .logo-panel.logo--pdp img { width: 70%; }
 .logo-panel.logo--pdp img { width: min(60%, 640px); }
+
+/* Grands titres texturés : la matière colorée doit couvrir aussi les accents
+   (É, È…) et les boucles du script, sinon ils paraissent coupés. */
+.big.tex, .mid.tex {
+  padding-top: .18em; padding-bottom: .12em;
+  margin-top: -.18em; margin-bottom: -.12em;
+}
+.script.tex {
+  line-height: 1.7;
+  padding-left: .12em; padding-right: .12em;
+}
+.poster .script.tex { margin-top: -7vw; padding-bottom: 0; }
+.project-hero .script.tex { margin-top: -.3em; margin-bottom: -.25em; }
