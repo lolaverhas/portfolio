@@ -587,3 +587,15 @@ ul { list-style: none; }
   .split { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(40px, 6vw, 96px); padding-top: clamp(48px, 6vw, 80px); }
   .split__img img { max-height: 78vh; width: auto; max-width: 100%; }
 }
+
+/* Mise en page "split" sur toutes les pages projet */
+.split__img.logo-panel { aspect-ratio: 4 / 5; }
+.split__img.logo-panel img { width: 50%; max-height: none; }
+.split__img.video { align-self: center; }
+.split__img.video img { max-height: none; width: 100%; }
+@media (min-width: 900px) {
+  .split:has(.video) { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: center; }
+}
+/* Galeries : photos plus mesurées */
+.gallery { max-width: 1080px; margin-left: auto; margin-right: auto; }
+.shot--solo { max-width: 560px; }
