@@ -603,3 +603,45 @@ ul { list-style: none; }
 /* Contact : coordonnées centrées */
 .contact__info { margin-left: 0; justify-content: center; text-align: center; }
 @media (max-width: 700px) { .contact__info { align-items: center; } }
+
+/* ---------------------------------------------------------
+   Animations (sobres) — actives seulement avec JS et sans
+   "réduire les animations"
+   --------------------------------------------------------- */
+.anim .rv { transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+.anim .rv-up    { opacity: 0; transform: translateY(24px); }
+.anim .rv-title { opacity: 0; transform: translateY(.22em); }
+.anim .rv-img   { opacity: 0; transform: translateY(32px); }
+.anim .rv.in    { opacity: 1; transform: none; }
+
+/* filets qui se tracent */
+.anim .rv-line { position: relative; border-bottom-color: transparent; }
+.anim .rv-line::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+  background: var(--ink); transform: scaleX(0); transform-origin: left;
+  transition: transform 1.2s cubic-bezier(.7,0,.2,1);
+}
+.anim .rv-line.in::after { transform: scaleX(1); }
+
+/* photos : léger zoom arrière à l'apparition */
+.anim .rv-img img { transform: scale(1.06); transition: transform 1.6s cubic-bezier(.2,.7,.2,1); }
+.anim .rv-img.in img { transform: none; }
+.anim .card:hover .card__img img { transform: scale(1.04); }
+
+/* Bandeau clients qui défile */
+.marquee {
+  overflow: hidden; white-space: nowrap;
+  margin-top: clamp(80px, 10vw, 140px);
+  border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+  padding: 18px 0;
+}
+.marquee__track { display: inline-flex; animation: marquee 38s linear infinite; }
+.marquee span {
+  font-family: var(--f-display); text-transform: uppercase;
+  font-size: clamp(28px, 4vw, 56px); line-height: 1; padding: 0 .5em;
+}
+.marquee span:nth-child(even) { color: var(--muted); font-family: var(--f-small); font-weight: 500; font-size: clamp(14px, 1.4vw, 18px); align-self: center; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
+.marquee .tex { background-size: 240px 240px, 100% 100%; padding: .12em .5em; }

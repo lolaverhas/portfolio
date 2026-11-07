@@ -29,3 +29,32 @@
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { fit(); placeScroll(); });
   window.addEventListener('load', placeScroll);
 })();
+
+// Animations d'apparition au scroll (désactivées si l'utilisateur préfère moins de mouvement)
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.documentElement.classList.add('anim');
+
+  var groups = [
+    ['.label', 'rv-line'],
+    ['.big, .mid, .script', 'rv-title'],
+    ['.intro__lead, .split__text .prose, .intro__side, .poster__info, .cat__meta, .facts, .credits > div, .links li, .contact__info p, .profile > div', 'rv-up'],
+    ['.card, .shot, .split__img', 'rv-img']
+  ];
+  var els = [];
+  groups.forEach(function (g) {
+    document.querySelectorAll(g[0]).forEach(function (el) { el.classList.add('rv', g[1]); els.push(el); });
+  });
+  // léger décalage entre éléments voisins (cartes d'une grille, colonnes de crédits…)
+  document.querySelectorAll('.grid, .credits, .links, .contact__info, .profile, .gallery').forEach(function (parent) {
+    [].forEach.call(parent.children, function (c, i) { c.style.transitionDelay = Math.min(i, 6) * 70 + 'ms'; });
+  });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  els.forEach(function (el) { io.observe(el); });
+})();
