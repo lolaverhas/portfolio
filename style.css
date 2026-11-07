@@ -599,3 +599,7 @@ ul { list-style: none; }
 /* Galeries : photos plus mesurées */
 .gallery { max-width: 1080px; margin-left: auto; margin-right: auto; }
 .shot--solo { max-width: 560px; }
+
+/* Contact : coordonnées centrées */
+.contact__info { margin-left: 0; justify-content: center; text-align: center; }
+@media (max-width: 700px) { .contact__info { align-items: center; } }
