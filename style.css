@@ -576,3 +576,4 @@ ul { list-style: none; }
 .poster .script.tex { margin-top: -7vw; padding-bottom: 0; }
 .project-hero .script.tex { margin-top: -.3em; margin-bottom: -.25em; }
 .shot--wide.logo-panel img { aspect-ratio: auto; object-fit: contain; height: auto; }
+.shot--pdp img { aspect-ratio: 3 / 2; object-position: 50% 50%; }
