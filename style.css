@@ -645,12 +645,3 @@ ul { list-style: none; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
 .marquee .tex { background-size: 240px 240px, 100% 100%; padding: .12em .5em; }
-
-/* Accueil : affiche plus compacte à l'arrivée (sur ordinateur) */
-@media (min-width: 701px) {
-  .poster { min-height: 100vh; min-height: 100svh; padding-top: clamp(24px, 4vh, 48px); }
-  .poster .big { padding: 0 var(--gutter); }
-  .poster__info { margin: clamp(24px, 5vh, 56px) 0 0 38%; }
-  .poster .script.tex { font-size: 17vw; margin-top: -4vw; margin-left: -1vw; }
-}
-.poster .big.tex { margin-top: 0; }
