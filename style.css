@@ -652,3 +652,11 @@ ul { list-style: none; }
 #presentation .intro { align-items: end; }
 @media (min-width: 900px) { #presentation .intro { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); } }
 #presentation .intro__side { font-size: clamp(16px, 1.3vw, 19px); max-width: 44ch; }
+/* portrait à la hauteur du texte */
+@media (min-width: 900px) {
+  #presentation .intro { grid-template-columns: auto minmax(0, 1fr); align-items: stretch; gap: clamp(24px, 3vw, 48px); }
+  #presentation .intro__photo { position: relative; height: 100%; aspect-ratio: 2 / 3; max-width: none; }
+  #presentation .intro__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  #presentation .intro__side { align-self: center; }
+}
+@media (max-width: 899px) { #presentation .intro__photo { max-width: 200px; } }
