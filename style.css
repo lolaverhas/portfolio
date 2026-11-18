@@ -763,10 +763,6 @@ ul { list-style: none; }
   transition: top .2s;
 }
 .skip:focus { top: 16px; }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
-.carousel__btn:focus-visible { outline-offset: 3px; }
-/* contour léger des grands titres texturés : lisibilité des zones claires du dégradé */
-.big.tex, .mid.tex { -webkit-text-stroke: 1px rgba(17, 17, 17, .28); }
 
 /* Info avant lecture YouTube */
 .video__cap { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
