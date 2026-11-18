@@ -58,3 +58,20 @@
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
   els.forEach(function (el) { io.observe(el); });
 })();
+
+// Carrousels : boutons précédent / suivant
+document.querySelectorAll('.carousel').forEach(function (c) {
+  var track = c.querySelector('.grid--carousel');
+  var btns = c.querySelectorAll('.carousel__btn');
+  function step() { var card = track.querySelector('.card'); return card ? card.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap) : 300; }
+  function update() {
+    var max = track.scrollWidth - track.clientWidth - 2;
+    btns[0].disabled = track.scrollLeft <= 2;
+    btns[1].disabled = track.scrollLeft >= max;
+    c.querySelector('.carousel__nav').style.display = max <= 0 ? 'none' : '';
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { track.scrollBy({ left: step() * +b.dataset.dir, behavior: 'smooth' }); }); });
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+});

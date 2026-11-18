@@ -699,3 +699,25 @@ html, body, * { cursor: url(img/cursor.png) 0 0, auto !important; }
 @media (min-width: 900px) {
   #presentation .intro__photo { width: clamp(230px, 18vw, 280px); }
 }
+
+/* Carrousel DA / Production */
+.grid--carousel {
+  display: grid; grid-auto-flow: column; grid-template-columns: none;
+  --n: 5; --gap: 20px;
+  grid-auto-columns: calc((100% - (var(--n) - 1) * var(--gap)) / var(--n));
+  gap: var(--gap); overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none; -ms-overflow-style: none; overscroll-behavior-x: contain;
+}
+.grid--carousel::-webkit-scrollbar { display: none; }
+.grid--carousel .card { scroll-snap-align: start; }
+@media (max-width: 1200px) { .grid--carousel { --n: 4; } }
+@media (max-width: 900px)  { .grid--carousel { --n: 3; --gap: 16px; } }
+@media (max-width: 640px)  { .grid--carousel { --n: 1.6; --gap: 12px; } }
+.carousel__nav { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+.carousel__btn {
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--ink);
+  background: transparent; color: var(--ink); font-size: 18px; line-height: 1;
+  transition: background .2s, color .2s, opacity .2s;
+}
+.carousel__btn:hover { background: var(--ink); color: var(--white); }
+.carousel__btn:disabled { opacity: .25; pointer-events: none; }
