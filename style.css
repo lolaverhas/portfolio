@@ -724,3 +724,9 @@ ul { list-style: none; }
 @media (max-width: 899px) {
   #presentation .intro__photo { width: min(60vw, 240px); max-width: 240px; }
 }
+/* Présentation mobile : centrée */
+@media (max-width: 899px) {
+  #presentation .intro { text-align: center; justify-items: center; }
+  #presentation .intro__side { margin-left: auto; margin-right: auto; }
+  #presentation .intro__photo { margin-left: auto; margin-right: auto; }
+}
