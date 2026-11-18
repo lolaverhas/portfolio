@@ -660,3 +660,17 @@ ul { list-style: none; }
   #presentation .intro__side { align-self: center; }
 }
 @media (max-width: 899px) { #presentation .intro__photo { max-width: 200px; } }
+
+/* Curseur personnalisé */
+.has-cursor, .has-cursor * { cursor: none !important; }
+.cursor {
+  position: fixed; left: 0; top: 0; z-index: 9999; pointer-events: none;
+  width: 18px; height: 18px; border-radius: 50%;
+  background-repeat: repeat, no-repeat; background-size: 120px 120px, 100% 100%;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.6);
+  opacity: 0; transition: width .25s, height .25s, opacity .2s;
+}
+.cursor.on { opacity: 1; }
+.cursor.big { width: 46px; height: 46px; }
+.cursor { background-size: 60px 60px, 100% 100%; }
+.cursor.big { mix-blend-mode: multiply; opacity: .75; }
