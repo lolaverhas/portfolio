@@ -748,3 +748,7 @@ ul { list-style: none; }
 .menu li.sub a { margin-left: 14px; }
 .menu a { transform-origin: left center; transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s; }
 .menu a:hover, .menu a:focus-visible { transform: scale(1.08); }
+/* carrousels au format vidéo (16:9) : moins de cartes visibles */
+.grid--video.grid--carousel { --n: 3; }
+@media (max-width: 900px) { .grid--video.grid--carousel { --n: 2; } }
+@media (max-width: 640px) { .grid--video.grid--carousel { --n: 1.25; } }
