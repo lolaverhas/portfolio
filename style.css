@@ -721,3 +721,8 @@ html, body, * { cursor: url(img/cursor.png) 0 0, auto !important; }
 }
 .carousel__btn:hover { background: var(--ink); color: var(--white); }
 .carousel__btn:disabled { opacity: .25; pointer-events: none; }
+/* Présentation : bloc recentré, portrait raisonnable sur mobile */
+#presentation .intro { max-width: 1080px; margin-left: auto; margin-right: auto; }
+@media (max-width: 899px) {
+  #presentation .intro__photo { width: min(60vw, 240px); max-width: 240px; }
+}
