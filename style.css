@@ -696,3 +696,6 @@ html, body, * { cursor: url(img/cursor.png) 0 0, auto !important; }
   font-family: var(--f-small); font-weight: 500; font-size: 15px; line-height: 1.5;
   max-width: 46ch; color: var(--ink);
 }
+@media (min-width: 900px) {
+  #presentation .intro__photo { width: clamp(230px, 18vw, 280px); }
+}
