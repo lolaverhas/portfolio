@@ -645,3 +645,10 @@ ul { list-style: none; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
 .marquee .tex { background-size: 240px 240px, 100% 100%; padding: .12em .5em; }
+
+/* Présentation : portrait */
+.intro__photo { margin: 0; max-width: 420px; }
+.intro__photo img { display: block; width: 100%; height: auto; }
+#presentation .intro { align-items: end; }
+@media (min-width: 900px) { #presentation .intro { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); } }
+#presentation .intro__side { font-size: clamp(16px, 1.3vw, 19px); max-width: 44ch; }
