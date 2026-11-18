@@ -730,3 +730,17 @@ ul { list-style: none; }
   #presentation .intro__side { margin-left: auto; margin-right: auto; }
   #presentation .intro__photo { margin-left: auto; margin-right: auto; }
 }
+
+/* Sommaire : liens clairement cliquables */
+.menu ul { display: flex; flex-direction: column; gap: 2px; }
+.menu a {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  padding: 3px 0; position: relative;
+  border-bottom: 1px solid var(--line);
+  transition: gap .3s cubic-bezier(.2,.7,.2,1), border-color .3s;
+}
+.menu a:hover, .menu a:focus-visible { border-color: var(--ink); gap: 12px; opacity: 1 !important; }
+.menu__n { font-family: var(--f-script); text-transform: none; font-weight: 400; font-size: 15px; color: var(--muted); min-width: 18px; }
+.menu li.sub a { margin-left: 26px; font-weight: 500; }
+.menu__arr { display: inline-block; font-size: 11px; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+.menu a:hover .menu__arr { transform: translate(2px, 2px); }
