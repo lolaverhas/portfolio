@@ -752,3 +752,35 @@ ul { list-style: none; }
 .grid--video.grid--carousel { --n: 3; }
 @media (max-width: 900px) { .grid--video.grid--carousel { --n: 2; } }
 @media (max-width: 640px) { .grid--video.grid--carousel { --n: 1.25; } }
+
+/* ---------------------------------------------------------
+   Accessibilité
+   --------------------------------------------------------- */
+.skip {
+  position: absolute; left: 16px; top: -60px; z-index: 10000;
+  padding: 10px 16px; background: var(--ink); color: var(--white);
+  font-family: var(--f-small); font-weight: 700; text-transform: uppercase; font-size: 12px;
+  transition: top .2s;
+}
+.skip:focus { top: 16px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.carousel__btn:focus-visible { outline-offset: 3px; }
+/* contour léger des grands titres texturés : lisibilité des zones claires du dégradé */
+.big.tex, .mid.tex { -webkit-text-stroke: 1px rgba(17, 17, 17, .28); }
+
+/* Info avant lecture YouTube */
+.video__cap { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+.video__notice { text-transform: none; font-weight: 500; color: var(--muted); font-size: 12px; max-width: 60ch; text-align: left; }
+
+/* Page mentions légales */
+.legal { max-width: 760px; }
+.legal h1, .legal h2 { margin-bottom: clamp(24px, 3vw, 40px); }
+.legal h2 { margin-top: clamp(56px, 7vw, 96px); }
+.legal section { margin-bottom: 40px; }
+.legal section p:not(.label) { font-size: 15px; line-height: 1.6; max-width: 62ch; }
+.legal section p + p { margin-top: .8em; }
+.legal a { text-decoration: underline; text-underline-offset: 3px; }
+.legal__date { font-size: 12px; color: var(--muted); }
+.foot a[href="mentions-legales.html"] { text-decoration: underline; text-underline-offset: 3px; }
+.legal h1, .legal h2 { line-height: 1.05; font-size: clamp(40px, 6vw, 88px); }
+.legal .label { margin-bottom: 16px; }
