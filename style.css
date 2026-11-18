@@ -744,3 +744,7 @@ ul { list-style: none; }
 .menu li.sub a { margin-left: 26px; font-weight: 500; }
 .menu__arr { display: inline-block; font-size: 11px; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
 .menu a:hover .menu__arr { transform: translate(2px, 2px); }
+/* Sommaire : sans numéros ni flèches, léger grossissement au survol */
+.menu li.sub a { margin-left: 14px; }
+.menu a { transform-origin: left center; transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s; }
+.menu a:hover, .menu a:focus-visible { transform: scale(1.08); }
