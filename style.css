@@ -661,8 +661,6 @@ ul { list-style: none; }
 }
 @media (max-width: 899px) { #presentation .intro__photo { max-width: 200px; } }
 
-/* Curseur : flèche pixel aux couleurs des titres */
-html, body, * { cursor: url(img/cursor.png) 0 0, auto !important; }
 
 /* Présentation : texte en haut, portrait en bas à droite */
 #presentation .intro { display: block; }
