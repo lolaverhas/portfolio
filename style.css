@@ -748,27 +748,3 @@ ul { list-style: none; }
 .menu li.sub a { margin-left: 14px; }
 .menu a { transform-origin: left center; transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s; }
 .menu a:hover, .menu a:focus-visible { transform: scale(1.08); }
-
-/* Ornement pixel (coin haut gauche de la Présentation) */
-#presentation { position: relative; }
-.ornement {
-  position: absolute; z-index: 0; pointer-events: none;
-  left: var(--gutter); top: calc(clamp(80px, 12vw, 160px) + 60px);
-  width: clamp(160px, 17vw, 280px); aspect-ratio: 569 / 771;
-  background-repeat: repeat, no-repeat; background-size: 120px 120px, 100% 100%;
-  -webkit-mask: url(img/ornement.png) left top / contain no-repeat;
-          mask: url(img/ornement.png) left top / contain no-repeat;
-}
-#presentation .intro, #presentation .profile { position: relative; z-index: 1; }
-@media (max-width: 899px) { .ornement { width: 96px; top: calc(clamp(80px, 12vw, 160px) + 48px); opacity: .9; } }
-.ornement {
-  background-color: #6b6a70;
-  background-image:
-    radial-gradient(ellipse 40% 30% at 20% 15%, #b8433a 0%, #b8433a00 100%),
-    radial-gradient(ellipse 40% 30% at 75% 20%, #5b7690 0%, #5b769000 100%),
-    radial-gradient(ellipse 35% 25% at 30% 45%, #c9a44a 0%, #c9a44a00 100%),
-    radial-gradient(ellipse 40% 30% at 25% 70%, #7a6a9a 0%, #7a6a9a00 100%),
-    radial-gradient(ellipse 35% 25% at 40% 90%, #6e8f86 0%, #6e8f8600 100%);
-  background-size: 100% 100%;
-}
-@media (max-width: 899px) { .ornement { display: none; } }
