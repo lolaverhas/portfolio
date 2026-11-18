@@ -58,24 +58,3 @@
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
   els.forEach(function (el) { io.observe(el); });
 })();
-
-// Curseur personnalisé : pastille avec la même matière colorée que les grands titres
-(function () {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  var dot = document.createElement('div');
-  dot.className = 'cursor tex--a';
-  dot.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(dot);
-  document.documentElement.classList.add('has-cursor');
-  var x = -100, y = -100, cx = x, cy = y;
-  window.addEventListener('mousemove', function (e) { x = e.clientX; y = e.clientY; dot.classList.add('on'); }, { passive: true });
-  document.addEventListener('mouseleave', function () { dot.classList.remove('on'); });
-  document.addEventListener('mouseover', function (e) {
-    dot.classList.toggle('big', !!e.target.closest('a, button'));
-  });
-  (function loop() {
-    cx += (x - cx) * 0.35; cy += (y - cy) * 0.35;
-    dot.style.transform = 'translate(' + cx + 'px,' + cy + 'px) translate(-50%,-50%)';
-    requestAnimationFrame(loop);
-  })();
-})();
