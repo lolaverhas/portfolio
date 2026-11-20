@@ -793,3 +793,28 @@ ul { list-style: none; }
 @media (max-width: 899px) {
   #presentation .intro__photos { width: min(100%, 360px); margin: 0 auto; }
 }
+
+/* Présentation : collage (sticker, photo couleur, photo dessous) */
+.collage { position: relative; width: min(100%, 520px); aspect-ratio: 1 / 1.02; }
+.collage img { position: absolute; display: block; height: auto; }
+.collage__color {
+  right: 0; top: 0; width: 46%; z-index: 1;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+.collage__under {
+  left: 34%; top: 53%; width: 40%; z-index: 2;
+  filter: grayscale(1) contrast(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  transform: rotate(-1.5deg);
+}
+.collage__sticker {
+  left: 0; top: 17%; width: 40%; z-index: 3;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.22));
+  transform: rotate(-4deg);
+}
+@media (min-width: 900px) {
+  #presentation .collage { order: 2; justify-self: end; width: clamp(380px, 34vw, 540px); }
+}
+@media (max-width: 899px) { #presentation .collage { margin: 0 auto; width: min(100%, 380px); } }
+.collage { aspect-ratio: 1 / 1.05; }
+.collage__under { top: 58%; left: 30%; width: 46%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 45%; }
