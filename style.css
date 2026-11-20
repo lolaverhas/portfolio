@@ -793,3 +793,6 @@ ul { list-style: none; }
 @media (max-width: 899px) {
   #presentation .intro__photos { width: min(100%, 360px); margin: 0 auto; }
 }
+/* trio de photos plus petit */
+@media (min-width: 900px) { #presentation .intro__photos { width: clamp(240px, 19vw, 300px); gap: 8px; } }
+@media (max-width: 899px) { #presentation .intro__photos { width: min(100%, 260px); gap: 8px; } }
