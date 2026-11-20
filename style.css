@@ -793,9 +793,3 @@ ul { list-style: none; }
 @media (max-width: 899px) {
   #presentation .intro__photos { width: min(100%, 360px); margin: 0 auto; }
 }
-/* Présentation : 3 photos identiques, alignées sur une ligne */
-#presentation .intro__photos { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-#presentation .intro__photos .intro__photo,
-#presentation .intro__photos .intro__photo:nth-child(3) { grid-column: auto; aspect-ratio: 4 / 5; width: 100%; height: auto; }
-@media (min-width: 900px) { #presentation .intro__photos { width: clamp(420px, 36vw, 560px); } }
-@media (max-width: 899px) { #presentation .intro__photos { width: min(100%, 420px); } }
