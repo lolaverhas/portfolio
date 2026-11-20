@@ -797,4 +797,4 @@ ul { list-style: none; }
 @media (min-width: 900px) { #presentation .intro__photos { width: clamp(240px, 19vw, 300px); gap: 8px; } }
 @media (max-width: 899px) { #presentation .intro__photos { width: min(100%, 260px); gap: 8px; } }
 /* photo caméra : léger zoom sur Lola, même cadre */
-#presentation .intro__photos .intro__photo:nth-child(2) img { transform: scale(1.5); transform-origin: 56% 52%; }
+#presentation .intro__photos .intro__photo:nth-child(2) img { transform: scale(1.5); transform-origin: 56% 78%; }
